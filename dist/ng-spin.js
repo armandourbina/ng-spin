@@ -103,17 +103,18 @@ angular
 				);
 			}
 
+			 // wrap if blocking spinner
+            if (ngSpinOps.blocking) {
+                tElem.wrap(
+                    '<div ng-show="isOn" class="ng-spin-overlay ng-spin-overlay-bg-' + ngSpinOps.blocking + '"></div>'
+                );
+            }
+
 			/**********************************************************/
 
 			// link
 			return function($scope, elem, attr){
-				// wrap if blocking spinner
-				if(ngSpinOps.blocking){
-					elem.wrap(
-						'<div class="ng-spin-overlay ng-spin-overlay-bg-' + ngSpinOps.blocking + '"></div>'
-					);
-				}
-
+				
 				// start/stop switcher
 				$scope.isOn = false;
 				
@@ -206,7 +207,9 @@ angular
 		position : 'right-top',
 		blocking : false,
 		delay : 0,
-		extend : 100
+		extend : 100,
+		avoidSpinUrls: [],
+        debug: false
 	};
 
 	return {

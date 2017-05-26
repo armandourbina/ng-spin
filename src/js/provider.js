@@ -10,7 +10,9 @@ angular
 		position : 'right-top',
 		blocking : false,
 		delay : 0,
-		extend : 100
+		extend : 100,
+		avoidSpinUrls: [],
+        debug: false
 	};
 
 	return {
